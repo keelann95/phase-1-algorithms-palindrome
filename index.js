@@ -1,14 +1,11 @@
 function isPalindrome(word) {
-  // Write your algorithm here
+  // Convert to lowercase and remove non-alphanumeric characters
+  const cleanedWord = word.toLowerCase().replace(/[^a-z0-9]/g, '');
+  
+  // Compare the cleaned word with its reverse
+  return cleanedWord === cleanedWord.split('').reverse().join('');
 }
 
-/* 
-  Add your pseudocode here
-*/
-
-/*
-  Add written explanation of your solution here
-*/
 
 // You can run `node index.js` to view these console logs
 if (require.main === module) {
@@ -20,6 +17,21 @@ if (require.main === module) {
 
   console.log("Expecting: false");
   console.log("=>", isPalindrome("robot"));
+
+  console.log("");
+
+  console.log("Expecting: true");
+  console.log("=>", isPalindrome("A man, a plan, a canal: Panama"));
+
+  console.log("");
+
+  console.log("Expecting: false");
+  console.log("=>", isPalindrome("hello world"));
+
+  console.log("");
+
+  console.log("Expecting: true");
+  console.log("=>", isPalindrome("12321"));
 }
 
 module.exports = isPalindrome;
